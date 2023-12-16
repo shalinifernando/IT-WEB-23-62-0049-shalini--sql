@@ -1,0 +1,67 @@
+Q2)
+ii) 
+Step 1) CREATE DATABASE student information;
+Step 2) 
+
+CREATE TABLE Courses(
+CourseID int NOT NULL PRIMARY KEY,
+Name varchar (255),
+LecturerName varchar (255) 
+);
+
+
+CREATE TABLE Students (
+StudentsID int NOT NULL PRIMARY KEY,
+Name varchar (255),
+City varchar (255),
+CourseID int
+);
+ALTER TABLE Students
+ADD CONSTRAINT fk_CourseID
+FOREIGN KEY (CourseID) REFERENCES Courses(CourseID)
+
+
+Step 3) 
+INSERT INTO Students
+VALUES (1,' Kasun Gamage' ,'Kandy' ,2)
+INSERT INTO Students
+VALUES (2,' Daniel Sam' ,' Jaffna' ,3)
+INSERT INTO Students
+VALUES (2,' Hansi silva' ,' Colombo' ,1)
+INSERT INTO Students
+VALUES (2,' Ranidu Herath' ,' Galle' ,3)
+INSERT INTO Students
+VALUES (2,' Praneeth wijesinghe' ,' Kandy' ,4)
+INSERT INTO Students
+VALUES (2,' Nuwani Herath' ,' Rathnapura' ,1)
+Step 4)
+
+
+INSERT INTO Courses
+VALUES (1,' Web Development' ,'M. M. Herath')
+INSERT INTO Courses
+VALUES (2,' Grapic Design',J.S.V. Piyasena ')
+
+INSERT INTO Courses
+VALUES (3,' Mobile App Development','K.K.S Dias')
+
+INSERT INTO Courses
+VALUES (4,'Java' ,' U.H.S. perera')
+
+
+iv)
+
+A) SELECT * FROM Students;
+
+
+B) SELECT StudentID,Name,City FROM Students WHERE City='Kandy';
+
+
+C) UPDATE Students SET City ='Galle' WHERE StudentID=4
+
+
+D) SELECT Students.StudentID, Students.Name, Students.City,
+      Courses.Name  
+FROM Courses
+LEFT JOIN Students
+ON Students.CourseID = Courses.CourseID
